@@ -1,0 +1,24 @@
+cat > .gitignore <<'EOF'
+# local / OS / editor
+*.log
+*.zip
+.DS_Store
+.vscode/
+.idea/
+
+# terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+tfplan
+
+# avoid credentials & kube/helm caches
+.aws/
+.kube/
+.cache/
+.config/
+*.pem
+*.key
+secrets.yaml
+EOF

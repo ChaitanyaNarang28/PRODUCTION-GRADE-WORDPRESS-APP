@@ -1,0 +1,25 @@
+# wordpress-values.yaml
+mariadb:
+  enabled: false
+
+externalDatabase:
+  host: "syfe-wp-db.cd644ock2nlk.ap-south-1.rds.amazonaws.com"
+  user: "wp_app"
+  password: ""       # intentionally empty — we will inject via secret
+  database: "wordpress_db"
+  port: 3306
+
+wordpressUsername: admin
+wordpressPassword: "ChangeMe123!"    # change this if you want a different WP admin password
+wordpressEmail: admin@example.com
+
+service:
+  type: ClusterIP
+
+persistence:
+  enabled: true
+  existingClaim: wordpress-efs-pvc
+  mountPath: /var/www/html/wp-content
+
+ingress:
+  enabled: false
