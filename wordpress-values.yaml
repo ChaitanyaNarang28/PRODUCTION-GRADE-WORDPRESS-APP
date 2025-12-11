@@ -5,12 +5,12 @@ mariadb:
 externalDatabase:
   host: "syfe-wp-db.cd644ock2nlk.ap-south-1.rds.amazonaws.com"
   user: "wp_app"
-  password: ""       # intentionally empty — we will inject via secret
+  password: ""      
   database: "wordpress_db"
   port: 3306
 
 wordpressUsername: admin
-wordpressPassword: "ChangeMe123!"    # change this if you want a different WP admin password
+wordpressPassword: "Pass123!"    
 wordpressEmail: admin@example.com
 
 service:
