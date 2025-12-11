@@ -13,7 +13,6 @@ module "vpc" {
   cidr               = var.vpc_cidr
   azs                = var.azs
 
-  # AUTO-NETTING FOR SUBNETS
   public_subnets  = [for idx, az in var.azs : cidrsubnet(var.vpc_cidr, 8, idx)]
   private_subnets = [for idx, az in var.azs : cidrsubnet(var.vpc_cidr, 8, idx + length(var.azs))]
 
@@ -25,9 +24,9 @@ module "vpc" {
   }
 }
 
-# -------------------------------
+
 # EKS MODULE
-# -------------------------------
+
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "20.24.0"
@@ -51,19 +50,12 @@ module "eks" {
     }
   }
 
-  # ------------------------------
-  # PUBLIC API ACCESS (restricted)
-  # Allow only YOUR IP to reach the EKS API
-  # ------------------------------
+  
   cluster_endpoint_public_access  = true
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access_cidrs = ["65.0.110.53/32"]
 
-  # ------------------------------------------
-  # ACCESS ENTRIES (v20.x) - IAM → K8s admin mapping
-  # TEMPORARY: mapping root for quick access (remove & replace ASAP)
-  # ------------------------------------------
-  access_entries = {
+    access_entries = {
     root-admin = {
       principal_arn = "arn:aws:iam::025066248529:root"
       type          = "STANDARD"
