@@ -267,7 +267,3 @@ Include:
 ✔ Grafana dashboards showing real-time insights
 
 ---
-
-
-
-Just tell me **“generate PDF”**, **“generate video script”**, or **“generate architecture diagram”**.
