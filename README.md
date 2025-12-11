@@ -268,20 +268,6 @@ Include:
 
 ---
 
-## 📌 Notes
 
-* Replace `ALLOW_EMPTY_PASSWORD=yes` with strong credentials in production.
-* For HTTPS: use ACM + cert annotations in ingress.
-* Terraform folder contains optional IaC for VPC/EKS.
-
----
-
-# 🎉 **Project Completed Successfully!**
-
-Want me to generate:
-
-✅ A **PDF report** for submission?
-✅ A **video narration script**?
-✅ A **diagram (PNG/SVG)** for your README?
 
 Just tell me **“generate PDF”**, **“generate video script”**, or **“generate architecture diagram”**.
